@@ -226,4 +226,7 @@ fieldset legend a:hover{
   .sidebar{
     width:100%;
   }
+  #commentform form{
+    width:450px;
+  }
 }

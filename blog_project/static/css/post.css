@@ -246,12 +246,8 @@ fieldset legend a:hover{
     justify-content: center;
     align-items: center;
     height: 500px;
+    width: auto;
 
   }
-  .textarea{
-    display: inline-block;
-    width: 144px;
-    height:644px;
 
-  }
 }

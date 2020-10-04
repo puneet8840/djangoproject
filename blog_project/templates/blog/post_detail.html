@@ -1,0 +1,54 @@
+<!doctype html>
+{%extends "blog/base.html"%}
+{%block title_block%}PUNEET TRIVEDI'S BLOG
+
+
+
+{%endblock%}
+{%block content%}
+  <h1><marquee>PUNEET TRIVEDI's blog<i class="fa fa-smile-o" aria-hidden="true"></i></marquee></h1>
+
+  <div id='share'><h2>{{post.title}}<i class="fa fa-book" aria-hidden="true"></i></h2><a class='btn btn-primary bt-md' href="/{{post.id}}">share this post&nbsp;<i class="fa fa-share" aria-hidden="true"></i>
+</a>
+</div>
+  <small>published on {{post.publish}} by {{post.author|title}}&nbsp;<i class="fa fa-smile-o" aria-hidden="true"></i></small>
+
+
+
+  <p id='post_detail'>{{post.body|linebreaks}}</p>
+  {%with comments.count as comments_count%}
+  <h2>{{comments_count}} Comment{{comments_count|pluralize}} </h2>
+  {%endwith%}
+  {%if comments%}
+  {%for comment in comments%}
+  <p id='cd'>Comment{{forloop.conter}} by {{comment.name}}
+  {{comment.created|timesince}} ago</p>
+  <div id='cb'>
+    {{comment.body|linebreaks}}
+
+  </div>
+  <hr>
+  {%endfor%}
+  {%else%}
+  <p>There are no Comments!!</p>
+  {%endif%}
+  {%if csubmit%}
+  <h2>Your Comment Is Added Successfully<i class="fa fa-plus" aria-hidden="true"></i>
+</h2>
+  {%else%}
+  <div id='commentform'>
+  <fieldset id='oop'>
+    <legend>please drop your comment here#</legend>
+
+  <form  method="post">
+    {{form}}
+    {%csrf_token%}
+    <input type="submit"  value="submit">
+
+  </form>
+
+</fieldset>
+</div>
+  {%endif%}
+
+{%endblock%}

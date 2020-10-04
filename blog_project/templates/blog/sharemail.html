@@ -1,0 +1,20 @@
+<!doctype html>
+{%extends "blog/base.html"%}
+{%block title_block%}SHARE POST{%endblock%}
+{%block content%}
+{%if sent%}
+<h1>Email successfully send </h1>
+<h2>Post with Title {{obj.title}} By Mail!!</h2>
+{%else%}
+
+<h1>SHARE THIS {{obj.title}} POST BY MAIL!!</h1>
+<div id="fashion" >
+<form method='POST' id="shareform">
+  {{form}}
+  {%csrf_token%}
+  <input type="submit" class='btn btn-primary btn-sm' value="submit post">
+
+</form>
+</div>
+{%endif%}
+{%endblock%}

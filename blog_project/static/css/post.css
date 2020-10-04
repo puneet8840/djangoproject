@@ -217,7 +217,7 @@ fieldset legend a:hover{
 /* responsive design */
 @media only screen and (max-width:1086px){
   body{
-    background: rgba(45,245,4,0.5);
+    background: rgb(0, 153, 204);
     font-size: 30px;
   }
   .content{

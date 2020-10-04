@@ -245,10 +245,13 @@ fieldset legend a:hover{
     flex-direction:column;
     justify-content: center;
     align-items: center;
+    height: 500px;
 
   }
-  #commentform form textarea{
+  .textarea{
+    display: inline-block;
     width: 244px;
     height:644px;
+
   }
 }

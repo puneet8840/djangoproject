@@ -9,8 +9,14 @@
 <h1><marquee>PUNEET TRIVEDI's blog<i class="fa fa-smile-o" aria-hidden="true"></i>
 </marquee></h1>
 {%include 'blog/paginator.html' with page=post_list_view%}
+{%if tag%}
+<div class="">POST RELATED TO THE {{tag.name}} TAG ARE--</div>
+{%endif%}
 {%for post in post_list_view%}
 <hr>
+{%for tag in post.tags.all%}
+<a class="btn btn-sm btn-primary" href="{%url 'post_list_view' tag.slug%}">{{tag.name}}</a>
+{%endfor%}
   <a  href="{{post.get_absolute_url}}"><h2>{{post.title}}&nbsp;<i class="fa fa-book" aria-hidden="true"></i>
 </h2></a>
   <small>published on {{post.publish}} by {{post.author|title}}&nbsp;<i class="fa fa-smile-o" aria-hidden="true"></i>
@@ -19,6 +25,7 @@
 
 <fieldset>
   <legend><a href='{{post.get_absolute_url}}'<small>to read more about this blog please click here!!</small></a></legend>
+
 
 <div class="post">
   <p>{{post.body|truncatewords:30|linebreaks}}</p>
